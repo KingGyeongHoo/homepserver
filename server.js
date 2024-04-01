@@ -3,6 +3,7 @@ var axios = require('axios');
 var app = express();
 var cors = require('cors');
 var PORT = 5000;
+require('dotenv').config()
 
 app.use(express.json());
 app.use(cors());
@@ -15,8 +16,8 @@ app.get('/search', function(req, res) {
       sort: req.query.sort
     },
     headers: {
-      'X-Naver-Client-Id': 'wQar1yZR0GyPKK35iLjc',
-      'X-Naver-Client-Secret': 'lxhxpGYLGa',
+      'X-Naver-Client-Id': process.env.CLIENT_ID,
+      'X-Naver-Client-Secret': process.env.SECRET_KEY,
     }, 
   })
   .then(function(response) {
