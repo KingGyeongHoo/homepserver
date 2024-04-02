@@ -6,7 +6,10 @@ var PORT = 5000;
 require('dotenv').config()
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: '*'
+}));
+출처: https://inpa.tistory.com/entry/NODE-📚-CORS-설정하기-cors-모듈 [Inpa Dev 👨‍💻:티스토리]
 
 app.get('/search', function(req, res) {
   axios.get('https://openapi.naver.com/v1/search/news.json', {
